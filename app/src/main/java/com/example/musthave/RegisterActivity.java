@@ -1,5 +1,6 @@
 package com.example.musthave;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -19,7 +20,7 @@ public class RegisterActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.register_activity); // Corrigido: register_activitysetContentView(R.layout.activity_register);
+             setContentView(R.layout.register_activity);
 
         nameEditText = findViewById(R.id.nameEditText);
         birthDateEditText = findViewById(R.id.birthDateEditText);
@@ -46,6 +47,8 @@ public class RegisterActivity extends AppCompatActivity {
                 }
 
                 Toast.makeText(RegisterActivity.this, "Cadastro confirmado com sucesso!", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(RegisterActivity.this, OutfitActivity.class);
+                startActivity(intent);
                 finish();
             }
         });

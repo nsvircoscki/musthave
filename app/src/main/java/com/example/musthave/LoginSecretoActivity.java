@@ -1,5 +1,6 @@
 package com.example.musthave;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -29,6 +30,16 @@ public class LoginSecretoActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Toast.makeText(LoginSecretoActivity.this, "Login Secreto efetuado!", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(LoginSecretoActivity.this, OutfitActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        secretoSignUpButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(LoginSecretoActivity.this, RegisterActivity.class);
+                startActivity(intent);
             }
         });
     }

@@ -3,14 +3,11 @@ package com.example.musthave;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.view.ViewGroup; // Importação adicionada para o BlurView funcionar
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-import eightbitlab.com.blurview.BlurView;
-import eightbitlab.com.blurview.RenderScriptBlur;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -22,11 +19,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         ImageView logoImageView = findViewById(R.id.logoImageView);
+        Button signUpButton = findViewById(R.id.signUpButton);
+        Button loginButton = findViewById(R.id.loginButton);
 
         logoImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // A correção da lógica: agora os cliques são contados a cada toque
                 contadorCliques++;
 
                 if(contadorCliques == 3) {
@@ -34,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 if(contadorCliques == 5) {
-                    contadorCliques = 0; // Zera para o futuro
+                    contadorCliques = 0;
 
                     Intent intent = new Intent(MainActivity.this, LoginSecretoActivity.class);
                     startActivity(intent);
@@ -42,15 +40,20 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        // Configuração do efeito de vidro em tempo real
-        View decorView = getWindow().getDecorView();
-        ViewGroup rootView = decorView.findViewById(android.R.id.content);
+        signUpButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, RegisterActivity.class);
+                startActivity(intent);
+            }
+        });
 
-        BlurView blurViewEmail = findViewById(R.id.blurViewEmail);
-
-        float radius = 15f;
-
-        blurViewEmail.setupWith(rootView, new RenderScriptBlur(this))
-                .setBlurRadius(radius);
+        loginButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, OutfitActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 }

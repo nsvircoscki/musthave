@@ -13,7 +13,7 @@
         android:layout_height="848dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:background="@drawable/loginBackground"
+        android:background="@drawable/login_background"
         tools:layout_editor_absoluteX="-35dp"
         tools:layout_editor_absoluteY="91dp" />
 
@@ -24,37 +24,27 @@
         android:layout_marginBottom="32dp"
         android:src="@drawable/mhlogo"
         android:layout_margin="32dp"
-        app:layout_constraintBottom_toTopOf="@+id/blurViewEmail"
+        app:layout_constraintBottom_toTopOf="@+id/emailEditText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.2" />
 
-
-    <eightbitlab.com.blurview.BlurView
-        android:id="@+id/blurViewEmail"
+    <EditText
+        android:id="@+id/emailEditText"
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_margin="32dp"
         android:layout_marginBottom="8dp"
-        app:blurOverlayColor="#1AFFFFFF"
+        android:background="@drawable/bg_liquid_glass"
+        android:hint="Email or Username"
+        android:paddingStart="24dp"
+        android:paddingEnd="24dp"
+        android:textSize="14sp"
         app:layout_constraintBottom_toTopOf="@+id/passwordEditText"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <!-- O EditText agora preenche o BlurView e não tem mais constraints próprias -->
-        <EditText
-            android:id="@+id/emailEditText"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/bg_liquid_glass"
-            android:hint="Email or Username"
-            android:paddingStart="24dp"
-            android:paddingEnd="24dp"
-            android:textSize="14sp" />
-
-    </eightbitlab.com.blurview.BlurView>
+        app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/passwordEditText"
@@ -71,7 +61,7 @@
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/blurViewEmail" />
+        app:layout_constraintTop_toBottomOf="@+id/emailEditText" />
 
     <Button
         android:id="@+id/signUpButton"
